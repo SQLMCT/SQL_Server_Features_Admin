@@ -27,16 +27,16 @@ GO
 CREATE DATABASE [MemoryOptimizedDB]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'MemoryOptDB', FILENAME = N'D:\MemoryDemo\SQLData\MemoryOptDB.mdf' , SIZE = 524288KB , FILEGROWTH = 262144KB )
+( NAME = N'MemoryOptDB', FILENAME = N'E:\MemoryDemo\SQLData\MemoryOptDB.mdf' , SIZE = 524288KB , FILEGROWTH = 262144KB )
  LOG ON 
-( NAME = N'MemoryOptDB_log', FILENAME = N'D:\MemoryDemo\SQLLog\MemoryOptDB_log.ldf' , SIZE = 131072KB , FILEGROWTH = 262144KB )
+( NAME = N'MemoryOptDB_log', FILENAME = N'E:\MemoryDemo\SQLLog\MemoryOptDB_log.ldf' , SIZE = 131072KB , FILEGROWTH = 262144KB )
 GO
   
 ALTER DATABASE [MemoryOptimizedDB] ADD FILEGROUP [imoltp_mod]  
     CONTAINS MEMORY_OPTIMIZED_DATA;  
   
 ALTER DATABASE [MemoryOptimizedDB] ADD FILE  
-    (name = [imoltp_dir], filename= 'D:\MemoryDemo\imoltp_dir')  
+    (name = [imoltp_dir], filename= 'E:\MemoryDemo\imoltp_dir')  
     TO FILEGROUP imoltp_mod;  
 GO 
   

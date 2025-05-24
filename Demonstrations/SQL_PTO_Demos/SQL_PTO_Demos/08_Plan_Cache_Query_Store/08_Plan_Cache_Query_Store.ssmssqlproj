@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="08_Plan_Cache_Query_Store">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items />
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="08_Ad_Hoc_Workload.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_Ad_Hoc_Workload.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_Parameter_Sniffing.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_Parameter_Sniffing.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_Plan_Guides.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_Plan_Guides.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_PlanCache_QueryTunning.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_PlanCache_QueryTunning.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_PlanCache_Top10.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_PlanCache_Top10.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_ADworks.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_QueryStore_ADworks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_ADworksLT.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_QueryStore_ADworksLT.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_DMV.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_QueryStore_DMV.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_GetProductInfo.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_QueryStore_GetProductInfo.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
