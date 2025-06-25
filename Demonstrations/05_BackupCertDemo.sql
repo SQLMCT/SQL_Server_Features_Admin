@@ -1,4 +1,4 @@
---Hey John! Make sure you are on JDSQL19
+--Hey John! Make sure you are on SQLN1
 
 --Backup Encryption Demo
 USE master

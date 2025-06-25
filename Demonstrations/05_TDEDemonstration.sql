@@ -1,4 +1,4 @@
---Hey John! Make sure you are on JDSQL19
+--Hey John! Make sure you are on SQLN1
 USE MASTER
 GO
 --The first step is to create a Database Master Key. 
@@ -75,16 +75,16 @@ FROM sys.dm_database_encryption_keys
 
 
 
---Detach AdventureWorks2022 from JDSQL19
+--Detach AdventureWorks2022 from SQLN1
 USE MASTER
 GO
 EXEC master.dbo.sp_detach_db @dbname = N'AdventureWorks2022'
 GO
---Connect to JDSQL22 and try to attach database
+--Connect to SQLN2 and try to attach database
 --Switch over to the TDEServer02Attach.sql file
 
 -- To clean up demonstration
--- Turn off TDE (Make sure you are back on JDSQL19)
+-- Turn off TDE (Make sure you are back on SQL1)
 USE master;
 GO
 ALTER DATABASE AdventureWorks2022 SET ENCRYPTION OFF;

@@ -5,10 +5,10 @@ USE master;
 DROP DATABASE IF EXISTS ADR_Demo;
 CREATE DATABASE ADR_Demo ON PRIMARY
 	(NAME = ADR_DB,
-	FILENAME = 'D:\DATA\ADR_DB.mdf')
+	FILENAME = 'C:\Demos\ADR_DB.mdf')
 LOG ON
 	(NAME = ADR_DB_Log, 
-	FILENAME = 'D:\DATA\ADR_DB.ldf');
+	FILENAME = 'C:\Demos\ADR_DB.ldf');
 GO
 
 --Change Compatability Level to pre-2019
