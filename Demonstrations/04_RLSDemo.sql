@@ -1,12 +1,12 @@
 --Prepare for the Demo
-USE MASTER
-GO
-DROP DATABASE IF EXISTS RLS_DEMO
-GO
-CREATE DATABASE RLS_DEMO
-GO
-USE RLS_DEMO
-GO
+--USE MASTER
+--GO
+--DROP DATABASE IF EXISTS RLS_DEMO
+--GO
+--CREATE DATABASE RLS_DEMO
+--GO
+--USE RLS_DEMO
+--GO
 
 --CREATE Self-contained Database Users without Logins
 CREATE USER Jack WITHOUT LOGIN
@@ -40,10 +40,10 @@ INSERT INTO dbo.CUSTOMER VALUES
 GO
 
 
---Select records Before implementing Row-Level Security
+--Test Row-Level Security again
 --Execute as Manager, Jack, and Diane
 --They should be able to read all the records
-EXECUTE AS USER = 'Manager'
+EXECUTE AS USER = 'Diane'
 SELECT CustomerName, CustomerEmail, SalesPersonName
 FROM dbo.Customer
 REVERT
@@ -56,7 +56,7 @@ RETURNS TABLE
 WITH SCHEMABINDING
 AS
 RETURN SELECT 1 as fn_SecureCustomerData
-WHERE @FilterName = user_name() or USER_NAME() = 'Manager'
+WHERE @FilterName = user_name() or user_name() = 'Manager'
 GO
 
 --Apply the Row-Level Filter with a Security Policy
@@ -70,7 +70,7 @@ GO
 --Execute as Manager, Jack, and Diane
 --Jack and Diane should only see their customers.
 --Manager can still see all records.
-EXECUTE AS USER = 'Jack'
+EXECUTE AS USER = 'Manager'
 SELECT CustID, CustomerEmail, SalesPersonName
 FROM dbo.Customer
 REVERT
@@ -78,12 +78,15 @@ GO
 
 --Test Row-Level Security for Updates
 --Execute as Manager, Jack, and Diane
-EXECUTE AS USER = 'Diane'
+EXECUTE AS USER = 'Jack'
 UPDATE dbo.CUSTOMER
 SET SalesPersonName = 'Jack'
 WHERE CustID = 8
 REVERT
 GO
 
-
+--Clean Up
+DROP SECURITY POLICY FilterCustomer
+DROP TABLE dbo.Customer;
+GO
 

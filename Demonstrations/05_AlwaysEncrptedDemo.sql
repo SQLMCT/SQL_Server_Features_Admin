@@ -4,10 +4,10 @@ GO
 --*/
 --Check that the Connection parameters are cleared.
 
-CREATE DATABASE EncryptedDB
-GO
-USE EncryptedDB
-GO
+--CREATE DATABASE EncryptedDB
+--GO
+--USE EncryptedDB
+--GO
 
 --Build a table with sensitive data
 CREATE SCHEMA Sales Authorization dbo

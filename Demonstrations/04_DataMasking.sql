@@ -7,8 +7,8 @@ CREATE TABLE EmployeePersonalData
 (EmpID int NOT NULL PRIMARY KEY,
  Salary int  MASKED WITH (FUNCTION = 'default()') NOT NULL,
  EmailAddress varchar(255)  MASKED WITH (FUNCTION = 'email()')  NULL,
- VoiceMailPin smallint MASKED WITH (FUNCTION = 'random(0, 9)') NULL,
- CompanyCard varchar(30) MASKED WITH (FUNCTION = 'partial(0,"XXXX",4)') NULL,
+ VoiceMailPin smallint MASKED WITH (FUNCTION = 'random(1000, 9000)') NULL,
+ CompanyCard varchar(30) MASKED WITH (FUNCTION = 'partial(2,"XXXX",4)') NULL,
  HomePhone varchar(30) NULL
 );
 GO
@@ -39,7 +39,7 @@ GO
 --Alter the home_phone_number column to add a mask
 ALTER TABLE EmployeePersonalData 
 ALTER COLUMN HomePhone
-ADD MASKED WITH (FUNCTION = 'partial(3,"-XXX",0)');
+ADD MASKED WITH (FUNCTION = 'partial(0,"XXX-",4)');
 GO
 
 --Demonstrate the new mask  

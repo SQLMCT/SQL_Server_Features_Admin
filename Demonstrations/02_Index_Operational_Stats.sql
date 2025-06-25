@@ -5,10 +5,10 @@ USE master;
 DROP DATABASE IF EXISTS IOP_Demo;
 CREATE DATABASE IOP_Demo ON PRIMARY
 	(NAME = IOP_Demo,
-	FILENAME = 'D:\DATA\IOP_DB.mdf')
+	FILENAME = 'C:\Demos\IOP_DB.mdf')
 LOG ON
 	(NAME = IOP_Demo_Log, 
-	FILENAME = 'D:\DATA\IOP_DB.ldf');
+	FILENAME = 'C:\Demos\IOP_DB.ldf');
 GO
 
 USE IOP_Demo

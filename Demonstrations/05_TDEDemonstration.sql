@@ -1,5 +1,26 @@
+--Hey John! Make sure you are on JDSQL19
+USE MASTER
+GO
+--The first step is to create a Database Master Key. 
+--This can only be performed once.
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'SQL$ecurity3SQL$ecurity3';
+GO
 
---Hey John! Make sure you are on JDSQL01
+--TDE Demo
+USE AdventureWorks2022
+GO
+--The first step is to create a Database Master Key. 
+--This can only be performed once.
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'SQL$ecurity3SQL$ecurity3';
+GO
+
+--Check to see if key is encrypted by Server
+SELECT name,  is_master_key_encrypted_by_server 
+FROM sys.databases
+GO
+SELECT * FROM sys.symmetric_keys
+GO
+
 
 USE MASTER
 GO
@@ -7,7 +28,11 @@ CREATE CERTIFICATE TDECert WITH SUBJECT = 'Certificate for TDE DB'
 GO
 SELECT name, thumbprint FROM master.sys.certificates
 GO
-USE AdventureWorks2016
+
+--0xB1B638CF0A61D5785403742E1525E1604B0AA264
+
+--Create the Database Encyrption Key
+USE AdventureWorks2022
 GO
 CREATE DATABASE ENCRYPTION KEY WITH ALGORITHM = AES_256
 ENCRYPTION BY SERVER CERTIFICATE TDECert
@@ -32,7 +57,7 @@ Notice that the Key has been created,
 but the database has not been encrypted.
 The encryption process will be asynchronous,
 and will not block other users. */
-ALTER DATABASE AdventureWorks2016 SET ENCRYPTION ON
+ALTER DATABASE AdventureWorks2022 SET ENCRYPTION ON
 GO
 --Run Query to try to see Encryption in Progress
 SELECT DB_NAME(database_id) AS DBName,
@@ -50,24 +75,24 @@ FROM sys.dm_database_encryption_keys
 
 
 
---Detach AdventureWorks2016 from JDSQL01
+--Detach AdventureWorks2022 from JDSQL19
 USE MASTER
 GO
-EXEC master.dbo.sp_detach_db @dbname = N'AdventureWorks2016'
+EXEC master.dbo.sp_detach_db @dbname = N'AdventureWorks2022'
 GO
---Connect to JDSQL02 and try to attach database
+--Connect to JDSQL22 and try to attach database
 --Switch over to the TDEServer02Attach.sql file
 
 -- To clean up demonstration
--- Turn off TDE (Make sure you are back on JDSQL01)
+-- Turn off TDE (Make sure you are back on JDSQL19)
 USE master;
 GO
-ALTER DATABASE AdventureWorks2016 SET ENCRYPTION OFF;
+ALTER DATABASE AdventureWorks2022 SET ENCRYPTION OFF;
 GO
 -- Wait a minute for Encryption to turn off
 -- Remove Encryption Key from Database 
 
-USE AdventureWorks2016;
+USE AdventureWorks2022;
 GO
 DROP DATABASE ENCRYPTION KEY;
 GO
