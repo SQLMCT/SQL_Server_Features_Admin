@@ -1,12 +1,50 @@
+--Database Demo
+USE master;
 
-USE AdventureWorks2022;
+--Build Database for Demo
+DROP DATABASE IF EXISTS WoodLandBank;
+CREATE DATABASE WoodLandBank ON
+(NAME = WoodLandBank,
+ FILENAME = 'D:\DATA2\WoodLandBank.mdf',
+	SIZE = 10,
+    MAXSIZE = 50,
+    FILEGROWTH = 5)
+LOG ON
+(NAME = Test_DB_Log,
+ FILENAME = 'D:\DATA2\WoodLandBank.ldf',
+	SIZE = 5MB,
+    MAXSIZE = 25MB,
+    FILEGROWTH = 5MB);
 GO
- 
+
+USE WoodLandBank
 SELECT * 
-FROM Production.TransactionHistory AS TranHist
-INNER JOIN Production.TransactionHistoryArchive AS TranHistArch 
-ON TranHist.Quantity = TranHistArch.Quantity;
+FROM sys.database_files
 GO
+
+/*
+DROP TABLE IF EXISTS Accounting.BankAccounts
+DROP SCHEMA IF EXISTS Accounting
+GO
+--*/
+
+CREATE SCHEMA Accounting Authorization dbo
+CREATE TABLE BankAccounts
+ (AcctID int IDENTITY,
+  FirstName char(15),
+  LastName char(20),
+  Balance money,
+  ModifiedDate date)
+GO
+
+INSERT INTO Accounting.BankAccounts
+VALUES('Jack','Jones',500, GETDATE())
+INSERT INTO Accounting.BankAccounts
+VALUES('Diane','Smith', 750, GETDATE())
+GO
+
+SELECT * FROM Accounting.BankAccounts
+
 
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 

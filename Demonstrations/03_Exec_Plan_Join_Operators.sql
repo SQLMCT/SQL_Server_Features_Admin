@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
 -- MERGE JOIN NOT FORCED: Cost = 2.62738 and 1888kb Memory (Serial Plan)

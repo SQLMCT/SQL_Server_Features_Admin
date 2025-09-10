@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
 SELECT DB_NAME() AS DatabaseName, SCHEMA_NAME(T.[schema_id]) AS SchemaName,
